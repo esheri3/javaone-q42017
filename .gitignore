@@ -1,0 +1,8 @@
+.classpath
+.DS_Store
+.project
+.settings
+.vscode
+documents
+crypto.mv.db
+target
