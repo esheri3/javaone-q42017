@@ -20,7 +20,13 @@ public class CryptoUtils {
 
     public static String iv() {
          byte[] buffer = new byte[16];
-         SecureRandom secureRandom = new SecureRandom();
+         SecureRandom secureRandom = null;
+
+         try {
+            secureRandom = SecureRandom.getInstance("SHA1PRNG");
+         } catch (NoSuchAlgorithmException e) {
+             throw new RuntimeException(e);
+         }
 
          secureRandom.nextBytes(buffer);
          return Base64.getEncoder().encodeToString(buffer);
