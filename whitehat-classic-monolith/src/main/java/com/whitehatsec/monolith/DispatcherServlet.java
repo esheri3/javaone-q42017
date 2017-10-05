@@ -12,7 +12,7 @@ public class DispatcherServlet extends HttpServlet {
         String text = request.getParameter("text");
         PrintWriter writer = response.getWriter();
 
-        if (action == "encrypt") {
+        if ("encrypt".equals(action)) {
             String cipherText = null;
 
             try {
@@ -22,7 +22,7 @@ public class DispatcherServlet extends HttpServlet {
             }
 
             writer.println(cipherText);
-        } else if (action == "decrypt") {
+        } else if ("decrypt".equals(action)) {
             String plainText = null;
 
             try {
